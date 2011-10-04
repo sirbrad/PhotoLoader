@@ -1,0 +1,93 @@
+/* 1. Generic Browser Defaults
+	2. General Layout
+	3. Photo Loader
+	4. CSS3 Animation
+	
+ **********************************************************************/
+
+/* 1. Generic Browser Defaults
+ **********************************************************************/
+
+html, body { 
+	background-color: #eee; 
+	border: 0; 
+	color: #58585A; 
+	font: normal small Arial, Verdana, sans-serif; 
+	margin: 0; 
+	padding: 0; 
+	vertical-align: baseline; 
+}
+
+p { 
+	margin: 0 0 0.5em; 
+}
+
+ul { 
+	list-style: none;
+	margin: 0; 
+	padding: 0; 
+}
+
+/* 2. General Layout
+ **********************************************************************/
+
+.container {
+}
+
+/* 3. Photo Loader
+ **********************************************************************/
+
+#photo {
+    border:5px dotted #ccc; 
+    padding:10px;
+}
+
+#photo,
+#feeder {
+	 /*Only for positioning purposes*/
+	 margin:2% auto 0;
+	 width:640px;
+}
+#feeder li {
+    display:inline-block;
+	 margin-left:30px;
+}
+
+#feeder li:first-child {
+	margin:0;	
+}
+
+/* 4. CSS3 Animation
+ **********************************************************************/
+
+#photo img {
+	-webkit-transition:opacity 0.3s ease;	
+	-moz-transition:opacity 0.3s ease;	
+	-o-transition:opacity 0.3s ease;	
+	transition:opacity 0.3s ease;	
+}
+
+#photo.fadeOut img {
+	opacity:0;
+}
+
+#feeder img {
+	-webkit-transition:opacity 0.5s ease, -webkit-border-radius 0.3s ease;
+	-moz-transition:opacity 0.5s ease, -moz-border-radius 0.3s ease;
+	-o-transition:opacity 0.5s ease, -o-border-radius 0.3s ease;
+	transition:opacity 0.5s ease, border-radius 0.3s ease;
+}
+
+#feeder a:hover img,
+#feeder a.active img {
+	opacity:0.7;
+}
+
+
+#feeder a.active img {
+	opacity:0.4;	
+	
+	-webkit-border-radius:2em;
+	-moz-border-radius:2em;
+	border-radius:2em;
+}
