@@ -30,6 +30,7 @@
 	 *	@param context { Element/Node } an element to anchor the search by (defaults to window.document)
 	 *	@param first { Boolean } determines if we return the first element or the entire HTMLCollection
 	 * @return { Element | HTMLCollection/Array | Undefined } either the element(s) we require or undefined if it's not found
+	 * Thanks to @Integralist for the getTag function
 	 */
 	function getTag(options) {
 		var tag = options.tag || '*', 
@@ -119,101 +120,10 @@
 			
 			//Add className of active to the clicked thumbnail
 			this.className = 'active';
-			}
+		}
 		
 		e.preventDefault();
 	
 	});
-	
-	
-	/*
-
-var elemParent = document.getElementById('photo'),
-             photo = elemParent.getElementsByTagName('img')[0],
-             ul = document.getElementById('feeder'),
-             thumbs = ul.getElementsByTagName('a'),
-             thumbSrc;
-            
-            // Adds in the ajax loader to the background of the main div 
-            elemParent.style.background = 'url(Assets/Images/Core/ajax-loader.gif) center no-repeat';
-             
-             
-        jQuery(thumbs).bind('click', function(e) {
-            
-             // Resetting the length
-             var len = thumbs.length;
-             
-            // Find the src of the image on element clicked
-            thumbSrc = this.getElementsByTagName('img')[0].src;
-            
-            // Split the src and remove the thumbnail folder so it displays the large image
-            var splt = thumbSrc.split('Thumbs/'),
-                 mainPhoto = splt[0] + '' + splt[1];
-                 
-             while (len--) {
-                 thumbs[len].className = '';
-             }
-            
-            if (Modernizr.csstransitions) {
-            
-            if (elemParent.className === 'fadeIn') {
-                elemParent.className = 'fadeOut';
-            }
-            
-                var getStyle = (function(element) {
-                    if (window.getComputedStyle) { 
-                        // W3C specific method. Expects a style property with hyphens
-                        return function(element, styleName) {
-                            return element.ownerDocument.defaultView.getComputedStyle(element, null).getPropertyValue(styleName);    
-                        }
-                    } else if (element.currentStyle) { 
-                        // Internet Explorer-specific method. Expects style property names in camel case 
-                        return function(element, styleName) {
-                            return element.currentStyle[styleName];
-                        }
-                    }
-                }(document.body));
-                
-                var myInterval = window.setInterval(function() {
-                    if (getStyle(photo, 'opacity') <= 0) {
-                        // Cleanup
-                        window.clearInterval(myInterval);
-                        
-                        if (photo.src === mainPhoto) {
-                            elemParent.className = 'fadeIn';
-                        } else {
-                            // Overwrite the main photos src with the clicked element
-                            photo.src = mainPhoto;
-                            
-                            photo.onload = function() {
-                                elemParent.className = 'fadeIn';
-                            };    
-                        }
-                    }
-                }, 10);
-            
-            } else {
-                
-                jQuery(photo).fadeOut(400, function(){
-                    
-                    // Overwrite the main photos src with the clicked element
-                    photo.src = mainPhoto;
-                    
-                    //The fadeIn gets called once the fadeOut is finished
-                    jQuery(this).fadeIn();
-                
-                });
-            }
-            
-            //Add className of active to the clicked thumbnail
-            this.className = 'active';
-                        
-            // Stop the browser Default
-            e.preventDefault();
-                
-        });
-
-*/
-		
 		
 })(this) // We pass in 'this' and reference it as 'global' object (in the browser world the global object is the Window object)
